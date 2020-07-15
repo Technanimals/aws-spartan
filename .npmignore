@@ -9,3 +9,5 @@ nodemon.json
 yarn.lock
 .gitignore
 @types
+
+.spartan.json
