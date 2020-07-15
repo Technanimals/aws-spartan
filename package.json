@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "env": "node ./script/add-env",
     "test:once": "jest --bail --passWithNoTests",
     "test": "jest --watch --passWithNoTests --verbose",
     "coverage": "jest --coverage true --coverageReporters html --no-cache",
@@ -43,7 +44,8 @@
     "lint",
     "test:once",
     "coverage",
-    "build"
+    "build",
+    "env"
   ],
   "bin": {
     "spartan": "./dist/index.js"
