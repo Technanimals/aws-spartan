@@ -1,0 +1,11 @@
+{
+  "tables": {
+    "Metric": "<TablePath>"
+  },
+  "resolvers": {
+    "Mutation": {
+      "createMetric": "<ResolverPath>"
+    },
+    "Query": {}
+  }
+}

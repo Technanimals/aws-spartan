@@ -1,0 +1,39 @@
+Table:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: !Sub ${TableName}
+    BillingMode: PAY_PER_REQUEST
+    KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+    AttributeDefinitions:
+      AttributeName: id
+      AttributeType: S
+    StreamSpecification:
+      StreamViewType: NEW_AND_OLD_IMAGES
+Role:
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        Effect": Allow
+        Principal:
+          Service": appsync.amazonaws.com
+        Action: sts:AssumeRole
+    Policies:
+      - PolicyName:
+        PolicyDocument:
+          Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:BatchGetItem
+              - dynamodb:BatchWriteItem
+              - dynamodb:PutItem
+              - dynamodb:DeleteItem
+              - dynamodb:GetItem
+              - dynamodb:Scan
+              - dynamodb:Query
+              - dynamodb:UpdateItem
+            Resource: !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${TableName}/*
