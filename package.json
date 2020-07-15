@@ -1,0 +1,78 @@
+{
+  "name": "aws-spartan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test:once": "jest --bail --passWithNoTests",
+    "test": "jest --watch --passWithNoTests --verbose",
+    "coverage": "jest --coverage true --coverageReporters html --no-cache",
+    "coverage:watch": "jest --watchAll --coverage true --coverageReporters html --no-cache",
+    "lint": "tslint -p .",
+    "build": "rm -rf dist && tsc -p ."
+  },
+  "devDependencies": {
+    "@types/jest": "~26.0.4",
+    "@types/node": "~14.0.23",
+    "jest": "~26.1.0",
+    "pre-commit": "~1.2.2",
+    "ts-jest": "~26.1.2",
+    "ts-node": "~8.10.2",
+    "tsconfig-paths": "~3.9.0",
+    "tslint": "~6.1.2",
+    "tslint-clean-code": "~0.2.10",
+    "tslint-microsoft-contrib": "~6.2.0",
+    "tslint-sonarts": "~1.9.0"
+  },
+  "dependencies": {
+    "typescript": "~3.9.6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "\\.d\\.tsx?$",
+      "/__data__/",
+      "/__mock__/",
+      "/__tests__/"
+    ],
+    "errorOnDeprecated": true,
+    "globals": {
+      "ts-jest": {
+        "babelConfig": false,
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/lib/",
+      "/node_modules/"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "pre-commit": [
+    "lint",
+    "test:once",
+    "coverage",
+    "build"
+  ]
+}

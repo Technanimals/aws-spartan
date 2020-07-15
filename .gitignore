@@ -1,0 +1,10 @@
+
+node_modules
+yarn-error.*
+
+.env
+
+dist
+
+coverage
+.nyc_output

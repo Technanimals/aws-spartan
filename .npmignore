@@ -1,0 +1,11 @@
+
+node_modules
+coverage
+.nyc_output
+yarn-error.*
+.env
+src
+nodemon.json
+yarn.lock
+.gitignore
+@types
